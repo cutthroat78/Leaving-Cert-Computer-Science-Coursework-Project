@@ -10,8 +10,9 @@
 - [ ] Singleplayer Mode
 - [ ] Multiplayer Mode
 - [ ] Simulation
+  - [ ] Customise How Many Times to Run Simulation
 - [ ] Record Results into csv file
-- [ ] Take arguments as inputs
+- [ ] Take Arguments as Inputs (Including Amount of Times to Run Simulation)
 
 ### Brief
 
