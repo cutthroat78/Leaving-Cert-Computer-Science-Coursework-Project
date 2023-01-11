@@ -11,7 +11,7 @@
 - [ ] Multiplayer Mode
 - [ ] Simulation
 - [ ] Record Results into csv file
-- [ ] Take arguments instead of inputs
+- [ ] Take arguments as inputs
 
 ### Brief
 
