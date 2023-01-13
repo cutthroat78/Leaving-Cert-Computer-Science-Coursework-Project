@@ -14,8 +14,10 @@
   - [ ] Make the Game
   - [ ] Accept minimum of three different inputs
     - [ ] Name Input
+      - [ ] Validate Name Input
+    - [ ] Email Input
+      - [ ] Validate Email Input
     - [ ] Game Mode Input
-    - [ ] Input for Game Itself
   - [ ] Have A Variety of Mode
     - [ ] Singleplayer Mode
     - [ ] Multiplayer Mode
