@@ -48,3 +48,9 @@
 - [ ] Evaluation
 - [ ] References
 - [ ] Summary Word Count
+
+#### HTML File
+
+- [ ] Convert Docx to HTML
+- [ ] Make it Look Good (with CSS)
+- [ ] Add Navigation Bar to Top of Page
