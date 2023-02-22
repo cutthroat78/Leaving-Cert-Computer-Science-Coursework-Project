@@ -23,7 +23,7 @@
     - [x] Multiplayer Mode
     - [x] Simulation
 - [ ] Do Advanced Requirements
-  - [ ] Store Game Data in CSV File
+  - [x] Store Game Data in CSV File
   - [ ] Develop algorithms that perform some statistical analysis
     - [ ] Frequency
     - [ ] Mean
