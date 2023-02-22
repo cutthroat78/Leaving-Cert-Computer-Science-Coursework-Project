@@ -1,10 +1,12 @@
-#!/usr/bin/python3 
+#!/usr/bin/python3
 # Above commented line makes it easier to run this program with python3 on *nix (Linux, Mac, BSD, etc.) systems
 
 import random, sys # Import the library named random and the library named sys
 
 def game(player_one, player_two,player_one_name,player_two_name):
     gameboard = ["1","2","3","4","5","6","7","8","9"]
+    player_one_turns = [ ]
+    player_two_turns = [ ]
     
     games_played = 0
 
@@ -12,14 +14,23 @@ def game(player_one, player_two,player_one_name,player_two_name):
     while True:
         if check_win(gameboard) == "X" or check_win(gameboard) == "O" or check_win(gameboard) == "Tie":
             if check_win(gameboard) == "X":
+                who_won = player_one_name
                 draw_board(gameboard)
                 print("\n" + player_one_name + " won!\n")
             elif check_win(gameboard) == "O":
+                who_won = player_two_name
                 draw_board(gameboard)
                 print("\n" + player_two_name + " won!\n")
             elif check_win(gameboard) == "Tie":
+                who_won = "Tie"
                 draw_board(gameboard)
                 print("It's a tie!\n")
+            str_player_one_turns = '"' + ','.join(player_one_turns) + '"'
+            str_player_two_turns = '"' + ','.join(player_two_turns) + '"'
+            csv_entry = csv_gamemode + "," + who_won + "," + player_one_name + "," + str_player_one_turns + "," + player_two_name + "," + str_player_two_turns + "\n"
+            f = open("data.csv", "a")
+            f.write(csv_entry)
+            f.close()
             if player_one == "computer" and player_two == "computer":
                 games_played += 1
                 if games_played == simulation_amount:
@@ -35,6 +46,8 @@ def game(player_one, player_two,player_one_name,player_two_name):
                 else:
                     break
             if str(new_game) == "1":
+                player_one_turns = [ ]
+                player_two_turns = [ ]
                 gameboard = ["1","2","3","4","5","6","7","8","9"]
                 continue
             elif str(new_game) == "2":
@@ -42,7 +55,51 @@ def game(player_one, player_two,player_one_name,player_two_name):
         else:
             pass
         draw_board(gameboard)
-        game_turn("player_one",player_one,player_one_name,gameboard)
+        game_turn("player_one",player_one,player_one_name,gameboard,player_one_turns,player_two_turns)
+        if check_win(gameboard) == "X" or check_win(gameboard) == "O" or check_win(gameboard) == "Tie":
+            if check_win(gameboard) == "X":
+                who_won = player_one_name
+                draw_board(gameboard)
+                print("\n" + player_one_name + " won!\n")
+            elif check_win(gameboard) == "O":
+                who_won = player_two_name
+                draw_board(gameboard)
+                print("\n" + player_two_name + " won!\n")
+            elif check_win(gameboard) == "Tie":
+                who_won = "Tie"
+                draw_board(gameboard)
+                print("It's a tie!\n")
+            str_player_one_turns = '"' + ','.join(player_one_turns) + '"'
+            str_player_two_turns = '"' + ','.join(player_two_turns) + '"'
+            csv_entry = csv_gamemode + "," + who_won + "," + player_one_name + "," + str_player_one_turns + "," + player_two_name + "," + str_player_two_turns + "\n"
+            f = open("data.csv", "a")
+            f.write(csv_entry)
+            f.close()
+            if player_one == "computer" and player_two == "computer":
+                games_played += 1
+                if games_played == simulation_amount:
+                    new_game = "2"
+                    print("Simulation has ended")
+                else:
+                    new_game = "1"
+            else:
+                new_game = input("Would you like to play again? Type the number of your choice!\n\n1. Yes\n2. No\n\n>")
+            while True:
+                if str(new_game) != "1" and str(new_game) != "2":
+                    new_game = input("Please type the number of your choice on whether or not to play another game?\n\n1. Yes\n2. No\n\n>")
+                else:
+                    break
+            if str(new_game) == "1":
+                player_one_turns = [ ]
+                player_two_turns = [ ]
+                gameboard = ["1","2","3","4","5","6","7","8","9"]
+                continue
+            elif str(new_game) == "2":
+                break
+        else:
+            pass
+        draw_board(gameboard)
+        game_turn("player_two",player_two,player_two_name,gameboard,player_one_turns,player_two_turns)
         if check_win(gameboard) == "X" or check_win(gameboard) == "O" or check_win(gameboard) == "Tie":
             if check_win(gameboard) == "X":
                 draw_board(gameboard)
@@ -53,6 +110,12 @@ def game(player_one, player_two,player_one_name,player_two_name):
             elif check_win(gameboard) == "Tie":
                 draw_board(gameboard)
                 print("It's a tie!\n")
+            str_player_one_turns = '"' + ','.join(player_one_turns) + '"'
+            str_player_two_turns = '"' + ','.join(player_two_turns) + '"'
+            csv_entry = csv_gamemode + "," + who_won + "," + player_one_name + "," + str_player_one_turns + "," + player_two_name + "," + str_player_two_turns + "\n"
+            f = open("data.csv", "a")
+            f.write(csv_entry)
+            f.close()
             if player_one == "computer" and player_two == "computer":
                 games_played += 1
                 if games_played == simulation_amount:
@@ -68,39 +131,8 @@ def game(player_one, player_two,player_one_name,player_two_name):
                 else:
                     break
             if str(new_game) == "1":
-                gameboard = ["1","2","3","4","5","6","7","8","9"]
-                continue
-            elif str(new_game) == "2":
-                break
-        else:
-            pass
-        draw_board(gameboard)
-        game_turn("player_two",player_two,player_two_name,gameboard)
-        if check_win(gameboard) == "X" or check_win(gameboard) == "O" or check_win(gameboard) == "Tie":
-            if check_win(gameboard) == "X":
-                draw_board(gameboard)
-                print("\n" + player_one_name + " won!\n")
-            elif check_win(gameboard) == "O":
-                draw_board(gameboard)
-                print("\n" + player_two_name + " won!\n")
-            elif check_win(gameboard) == "Tie":
-                draw_board(gameboard)
-                print("It's a tie!\n")
-            if player_one == "computer" and player_two == "computer":
-                games_played += 1
-                if games_played == simulation_amount:
-                    new_game = "2"
-                    print("Simulation has ended")
-                else:
-                    new_game = "1"
-            else:
-                new_game = input("Would you like to play again? Type the number of your choice!\n\n1. Yes\n2. No\n\n>")
-            while True:
-                if str(new_game) != "1" and str(new_game) != "2":
-                    new_game = input("Please type the number of your choice on whether or not to play another game?\n\n1. Yes\n2. No\n\n>")
-                else:
-                    break
-            if str(new_game) == "1":
+                player_one_turns = [ ]
+                player_two_turns = [ ]
                 gameboard = ["1","2","3","4","5","6","7","8","9"]
                 continue
             elif str(new_game) == "2":
@@ -108,7 +140,7 @@ def game(player_one, player_two,player_one_name,player_two_name):
         else:
             pass
 
-def game_turn(player_number, player_type, player_name,gameboard):
+def game_turn(player_number, player_type, player_name, gameboard, player_one_turns, player_two_turns):
     if player_number == "player_one":
         symbol = "X"
     elif player_number == "player_two":
@@ -127,6 +159,10 @@ def game_turn(player_number, player_type, player_name,gameboard):
         if player_choice in gameboard:
             choice = int(player_choice) - 1
             gameboard[choice] = symbol
+            if player_number == "player_one":
+                player_one_turns.append(player_choice)
+            elif player_number == "player_two":
+                player_two_turns.append(player_choice)
             if player_type == "computer":
                 print("\n" + player_name + " has chosen square " + player_choice + " for their turn!\n")
                 break
@@ -232,9 +268,11 @@ while True:
         gamemode = input("Please input a valid gamemode by typing the number of the gamemode\n\n1. Singleplayer\n2. Multiplayer\n3. Simulation\n4. Statistical Analysis \n5. Exit\n\n>")
 
 if gamemode == "1":
+    csv_gamemode = "Singleplayer"
     game("human","computer",name,"Computer 1")
 
 if gamemode == "2":
+    csv_gamemode = "Multiplayer"
     if sys.argv[4:]:
         name2 = sys.argv[4]
     else:
@@ -249,6 +287,7 @@ if gamemode == "2":
     game("human","human",name,name2)
 
 if gamemode == "3":
+    csv_gamemode = "Simulation"
     if sys.argv[4:]:
         simulation_amount_input = sys.argv[4]
     else:
