@@ -102,12 +102,15 @@ def game(player_one, player_two,player_one_name,player_two_name):
         game_turn("player_two",player_two,player_two_name,gameboard,player_one_turns,player_two_turns)
         if check_win(gameboard) == "X" or check_win(gameboard) == "O" or check_win(gameboard) == "Tie":
             if check_win(gameboard) == "X":
+                who_won = player_one_name
                 draw_board(gameboard)
                 print("\n" + player_one_name + " won!\n")
             elif check_win(gameboard) == "O":
+                who_won = player_two_name
                 draw_board(gameboard)
                 print("\n" + player_two_name + " won!\n")
             elif check_win(gameboard) == "Tie":
+                who_won = "Tie"
                 draw_board(gameboard)
                 print("It's a tie!\n")
             str_player_one_turns = '"' + ','.join(player_one_turns) + '"'
