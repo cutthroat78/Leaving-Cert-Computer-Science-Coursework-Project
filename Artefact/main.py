@@ -262,7 +262,7 @@ if sys.argv[3:]:
 else:
     gamemode = input("Welcome to Tic Tac Toe!\n\nChoose Your Gamemode by Typing the Number of the Gamemode Below:\n\n1. Singleplayer\n2. Multiplayer\n3. Simulation\n4. Statistical Analysis\n5. Exit\n\n>") 
 
-gamemode_options = [ "1", "2", "3", "4" ]
+gamemode_options = [ "1", "2", "3", "4", "5" ]
 
 while True:
     if str(gamemode) in gamemode_options:
@@ -295,20 +295,28 @@ if gamemode == "3":
         simulation_amount_input = sys.argv[4]
     else:
         simulation_amount_input = input("How many games would you like the simulation to run for?\n\n>")
-    
+
     while True:
         if simulation_amount_input.isdigit():
             simulation_amount = int(simulation_amount_input)
             break
         simulation_amount_input = input("Please input a number\n\n>")
-    
+
     name = "Computer 1"
     name2 = "Computer 2"
-    
+
     game("computer","computer",name,name2)
 
 if gamemode == "4":
-    print("\nTo Do")
+    stat_option = input("\nWhat type of statistical analysis would you like to do?\n\n1. Frequency\n2. Mean\n3. Median\n4. Mode\n\n>")
+    if stat_option == "1":
+        print("To Do")
+    if stat_option == "2":
+        print("To Do")
+    if stat_option == "3":
+        print("To Do")
+    if stat_option == "4":
+        print("To Do")
 
 if gamemode == "5":
     print("\nGoodbye!")
