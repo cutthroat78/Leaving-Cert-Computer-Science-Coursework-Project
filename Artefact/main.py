@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Above commented line makes it easier to run this program with python3 on *nix (Linux, Mac, BSD, etc.) systems
 
-import random, sys # Import the library named random and the library named sys
+import random, sys, statistics # Import the library named random and the library named sys
 
 def game(player_one, player_two,player_one_name,player_two_name):
     gameboard = ["1","2","3","4","5","6","7","8","9"]
@@ -312,7 +312,15 @@ if gamemode == "4":
     if stat_option == "1":
         print("To Do")
     if stat_option == "2":
-        print("To Do")
+        stat2_option = input("\nWhat would you like to get the mean of?\n\n1. Wins\n2. Losses\n2. Ties\n4. A Certain Move in the Game\n\n>")
+        if stat2_option == "1":
+            print("To Do")
+        if stat2_option == "2":
+            print("To Do")
+        if stat2_option == "3":
+            print("To Do")
+        if stat2_option == "4":
+            print("To Do")
     if stat_option == "3":
         print("To Do")
     if stat_option == "4":
