@@ -2,7 +2,7 @@
 
 ## To Do
 
-- [ ] .gitignore csv file
+- [x] .gitignore csv file
 
 ### Artefact
 
