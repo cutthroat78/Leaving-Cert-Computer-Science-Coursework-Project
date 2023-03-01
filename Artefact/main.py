@@ -310,9 +310,17 @@ if gamemode == "3":
 if gamemode == "4":
     stat_option = input("\nWhat type of statistical analysis would you like to do?\n\n1. Frequency\n2. Mean\n3. Median\n4. Mode\n\n>")
     if stat_option == "1":
-        print("To Do")
+        stat1_option = input("\nWhat would you like to get the frequency of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
+        if stat1_option == "1":
+            print("To Do")
+        if stat1_option == "2":
+            print("To Do")
+        if stat1_option == "3":
+            print("To Do")
+        if stat1_option == "4":
+            print("To Do")
     if stat_option == "2":
-        stat2_option = input("\nWhat would you like to get the mean of?\n\n1. Wins\n2. Losses\n2. Ties\n4. A Certain Move in the Game\n\n>")
+        stat2_option = input("\nWhat would you like to get the mean of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
         if stat2_option == "1":
             print("To Do")
         if stat2_option == "2":
@@ -322,9 +330,25 @@ if gamemode == "4":
         if stat2_option == "4":
             print("To Do")
     if stat_option == "3":
-        print("To Do")
+        stat3_option = input("\nWhat would you like to get the median of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
+        if stat3_option == "1":
+            print("To Do")
+        if stat3_option == "2":
+            print("To Do")
+        if stat3_option == "3":
+            print("To Do")
+        if stat3_option == "4":
+            print("To Do")
     if stat_option == "4":
-        print("To Do")
+        stat4_option = input("\nWhat would you like to get the mode of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
+        if stat4_option == "1":
+            print("To Do")
+        if stat4_option == "2":
+            print("To Do")
+        if stat4_option == "3":
+            print("To Do")
+        if stat4_option == "4":
+            print("To Do")
 
 if gamemode == "5":
     print("\nGoodbye!")
