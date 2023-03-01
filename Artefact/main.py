@@ -2,6 +2,8 @@
 # Above commented line makes it easier to run this program with python3 on *nix (Linux, Mac, BSD, etc.) systems
 
 import random, sys, statistics # Import the library named random and the library named sys
+from pandas import *
+from pathlib import Path
 
 def game(player_one, player_two,player_one_name,player_two_name):
     gameboard = ["1","2","3","4","5","6","7","8","9"]
@@ -308,47 +310,13 @@ if gamemode == "3":
     game("computer","computer",name,name2)
 
 if gamemode == "4":
-    stat_option = input("\nWhat type of statistical analysis would you like to do?\n\n1. Frequency\n2. Mean\n3. Median\n4. Mode\n\n>")
-    if stat_option == "1":
-        stat1_option = input("\nWhat would you like to get the frequency of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
-        if stat1_option == "1":
-            print("To Do")
-        if stat1_option == "2":
-            print("To Do")
-        if stat1_option == "3":
-            print("To Do")
-        if stat1_option == "4":
-            print("To Do")
-    if stat_option == "2":
-        stat2_option = input("\nWhat would you like to get the mean of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
-        if stat2_option == "1":
-            print("To Do")
-        if stat2_option == "2":
-            print("To Do")
-        if stat2_option == "3":
-            print("To Do")
-        if stat2_option == "4":
-            print("To Do")
-    if stat_option == "3":
-        stat3_option = input("\nWhat would you like to get the median of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
-        if stat3_option == "1":
-            print("To Do")
-        if stat3_option == "2":
-            print("To Do")
-        if stat3_option == "3":
-            print("To Do")
-        if stat3_option == "4":
-            print("To Do")
-    if stat_option == "4":
-        stat4_option = input("\nWhat would you like to get the mode of?\n\n1. Wins\n2. Losses\n3. Ties\n4. A Certain Move in the Game\n\n>")
-        if stat4_option == "1":
-            print("To Do")
-        if stat4_option == "2":
-            print("To Do")
-        if stat4_option == "3":
-            print("To Do")
-        if stat4_option == "4":
-            print("To Do")
+    if Path("./data.csv").is_file():
+        stat_option = input("\nWhat type of statistical analysis would you like to do?\n\n1. Frequency\n2. Mean\n3. Median\n4. Mode\n\n>")
+        csv_data = read_csv("data.csv", header=None, names=["gamemode","who_won","player_one_name","str_player_one_turns","player_two_name","str_player_two_turns"])
+        game_outcomes = csv_data["who_won"].tolist()
+        stat_name = input("\nEnter the name of the player's data you would like to analyse\n\n>")
+    else:
+        print("data.csv doesn't exist. Please, play some games to generate some data")
 
 if gamemode == "5":
     print("\nGoodbye!")
