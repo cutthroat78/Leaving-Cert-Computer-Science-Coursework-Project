@@ -29,6 +29,7 @@
     - [ ] Mean
     - [ ] Median
     - [ ] Mode
+    - [ ] Bar Chart of Wins, Losses and Ties
     - [ ] Make Graphs of Above
   - [ ] Use the model to test hypotheses (such as answering 'what-if' type questions) and make future predictions by changing parameters within the game  
 
