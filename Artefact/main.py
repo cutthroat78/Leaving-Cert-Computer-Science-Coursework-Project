@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Above commented line makes it easier to run this program with python3 on *nix (Linux, Mac, BSD, etc.) systems
 
-import random, sys, statistics # Import the library named random and the library named sys
+import random, sys, statistics, collections # Import the library named random and the library named sys
 from pandas import *
 from pathlib import Path
 
@@ -309,12 +309,158 @@ if gamemode == "3":
 
     game("computer","computer",name,name2)
 
+def grab_moves(moves,position):
+    move_list = [ ]
+    for move in moves:
+        try:
+            move_to_add = move[position]
+            move_list.append(int(move_to_add))
+        except IndexError:
+            pass
+    return move_list
+
 if gamemode == "4":
     if Path("./data.csv").is_file():
-        stat_option = input("\nWhat type of statistical analysis would you like to do?\n\n1. Frequency\n2. Mean\n3. Median\n4. Mode\n\n>")
-        csv_data = read_csv("data.csv", header=None, names=["gamemode","who_won","player_one_name","str_player_one_turns","player_two_name","str_player_two_turns"])
-        game_outcomes = csv_data["who_won"].tolist()
-        stat_name = input("\nEnter the name of the player's data you would like to analyse\n\n>")
+        if sys.argv[4:]:
+            stat_player = sys.argv[4]
+        else:
+            stat_player = input("\nDo you want use player 1 or player 2 for analysis?\n\n1. Player 1\n2. Player 2\n\n>")
+        if sys.argv[5:]:
+            stat_type = sys.argv[5]
+        else:
+            stat_type = input("\nDo you want to do statistical analysis on\n1. All Players Moves in All Games\n2.All Moves in Games That They Won in\n3.All of a Players Moves in Games That They Lost in\n4. All Games That Ended in Ties\n\n>")
+        if stat_type == "1":
+            csv_data = read_csv("data.csv", header=None, names=["gamemode","who_won","player_one_name","str_player_one_turns","player_two_name","str_player_two_turns"])
+        elif stat_type == "2":
+            print("To Do")
+        elif stat_type == "3":
+            print("To Do")
+        elif stat_type == "4":
+            print("To Do")
+        else:
+            print("Please type 1, 2 or 3 to select what type of data you want to use for statistical analysis")
+        if stat_player == "1":
+            moves = csv_data["str_player_one_turns"].tolist()
+        elif stat_player == "2":
+            moves = csv_data["str_player_two_turns"].tolist()
+        else:
+            print("Please input either 1 for player 1 or 2 player for player 2")
+        first_moves = grab_moves(moves,0)
+        second_moves = grab_moves(moves,2)
+        third_moves = grab_moves(moves,4)
+        fourth_moves = grab_moves(moves,6)
+        fifth_moves = grab_moves(moves,8)
+        if sys.argv[6:]:
+            stat_option = sys.argv[6]
+        else:
+            stat_option = input("\nWhat type of statistical analysis would you like to do?\n\n1. Frequency\n2. Mean\n3. Median\n4. Mode\n\n>")
+        if stat_option == "1":
+            if first_moves:
+                first_moves_frequency_raw = str(collections.Counter(first_moves))
+                first_moves_frequency_without_start = first_moves_frequency_raw.replace(first_moves_frequency_raw[:9], '', 1)
+                first_moves_frequency_without_end = first_moves_frequency_without_start.replace(first_moves_frequency_without_start[-2:], '', 1)
+                first_moves_frequency = first_moves_frequency_without_end.replace(", ", '\n  ')
+                print("The Frequency of:\nFirst Moves:\n  " + first_moves_frequency)
+            else:
+                pass
+            if second_moves:
+                second_moves_frequency_raw = str(collections.Counter(second_moves))
+                second_moves_frequency_without_start = second_moves_frequency_raw.replace(second_moves_frequency_raw[:9], '', 1)
+                second_moves_frequency_without_end = second_moves_frequency_without_start.replace(second_moves_frequency_without_start[-2:], '', 1)
+                second_moves_frequency = second_moves_frequency_without_end.replace(", ", '\n  ')
+                print("The Frequency of:\nSecond Moves:\n  " + second_moves_frequency)
+            else:
+                pass
+            if third_moves:
+                third_moves_frequency_raw = str(collections.Counter(third_moves))
+                third_moves_frequency_without_start = third_moves_frequency_raw.replace(third_moves_frequency_raw[:9], '', 1)
+                third_moves_frequency_without_end = third_moves_frequency_without_start.replace(third_moves_frequency_without_start[-2:], '', 1)
+                third_moves_frequency = third_moves_frequency_without_end.replace(", ", '\n  ')
+                print("The Frequency of:\nThird Moves:\n  " + third_moves_frequency)
+            else:
+                pass
+            if fourth_moves:
+                fourth_moves_frequency_raw = str(collections.Counter(fourth_moves))
+                fourth_moves_frequency_without_start = fourth_moves_frequency_raw.replace(fourth_moves_frequency_raw[:9], '', 1)
+                fourth_moves_frequency_without_end = fourth_moves_frequency_without_start.replace(fourth_moves_frequency_without_start[-2:], '', 1)
+                fourth_moves_frequency = fourth_moves_frequency_without_end.replace(", ", '\n  ')
+                print("The Frequency of:\nFourth Moves:\n  " + fourth_moves_frequency)
+            else:
+                pass
+            if fifth_moves:
+                fifth_moves_frequency_raw = str(collections.Counter(fifth_moves))
+                fifth_moves_frequency_without_start = fifth_moves_frequency_raw.replace(fifth_moves_frequency_raw[:9], '', 1)
+                fifth_moves_frequency_without_end = fifth_moves_frequency_without_start.replace(fifth_moves_frequency_without_start[-2:], '', 1)
+                fifth_moves_frequency = fifth_moves_frequency_without_end.replace(", ", '\n  ')
+                print("The Frequency of:\nFifth Moves:\n  " + fifth_moves_frequency)
+            else:
+                pass
+        elif stat_option == "2":
+            if first_moves:
+                print("The Mean of:\nFirst Moves: " + str(round(statistics.mean(first_moves))))
+            else:
+                pass
+            if second_moves:
+                print("Second Moves: " + str(round(statistics.mean(second_moves))))
+            else:
+                pass
+            if third_moves:
+                print("Third Moves: " + str(round(statistics.mean(third_moves))))
+            else:
+                pass
+            if fourth_moves:
+                print("Fourth Moves: " + str(round(statistics.mean(fourth_moves))))
+            else:
+                pass
+            if fifth_moves:
+                print("Fifth Moves: " + str(round(statistics.mean(fifth_moves))))
+            else:
+                pass
+        elif stat_option == "3":
+            if first_moves:
+                print("The Median of:\nFirst Moves: " + str(round(statistics.median(first_moves))))
+            else:
+                pass
+            if second_moves:
+                print("Second Moves: " + str(round(statistics.median(second_moves))))
+            else:
+                pass
+            if third_moves:
+                print("Third Moves: " + str(round(statistics.median(third_moves))))
+            else:
+                pass
+            if fourth_moves:
+                print("Fourth Moves: " + str(round(statistics.median(fourth_moves))))
+            else:
+                pass
+            if fifth_moves:
+                print("Fifth Moves: " + str(round(statistics.median(fifth_moves))))
+            else:
+                pass
+        elif stat_option == "4":
+            if first_moves:
+                print("The Mode of:\nFirst Moves: " + str(round(statistics.mode(first_moves))))
+            else:
+                pass
+            if second_moves:
+                print("Second Moves: " + str(round(statistics.mode(second_moves))))
+            else:
+                pass
+            if third_moves:
+                print("Third Moves: " + str(round(statistics.mode(third_moves))))
+            else:
+                pass
+            if fourth_moves:
+                print("Fourth Moves: " + str(round(statistics.mode(fourth_moves))))
+            else:
+                pass
+            if fifth_moves:
+                print("Fifth Moves: " + str(round(statistics.mode(fifth_moves))))
+            else:
+                pass
+        else:
+            print("Please input 1 2 3 or 4 for type of statistical analysis")
+
     else:
         print("data.csv doesn't exist. Please, play some games to generate some data")
 

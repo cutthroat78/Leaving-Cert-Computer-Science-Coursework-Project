@@ -25,12 +25,12 @@
 - [ ] Do Advanced Requirements
   - [x] Store Game Data in CSV File
   - [ ] Develop algorithms that perform some statistical analysis
-    - [ ] Frequency
-    - [ ] Mean
-    - [ ] Median
-    - [ ] Mode
-    - [ ] Bar Chart of Wins, Losses and Ties
+    - [x] Frequency
+    - [x] Mean
+    - [x] Median
+    - [x] Mode
     - [ ] Make Graphs of Above
+    - [ ] Bar Chart of Wins, Losses and Ties
   - [ ] Use the model to test hypotheses (such as answering 'what-if' type questions) and make future predictions by changing parameters within the game  
 
 ### Report
