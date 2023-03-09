@@ -328,7 +328,7 @@ if gamemode == "4":
         if sys.argv[5:]:
             stat_type = sys.argv[5]
         else:
-            stat_type = input("\nDo you want to do statistical analysis on\n1. All Players Moves in All Games\n2.All Moves in Games That They Won in\n3.All of a Players Moves in Games That They Lost in\n4. All Games That Ended in Ties\n\n>")
+            stat_type = input("\nDo you want to do statistical analysis on\n1. All Players Moves in All Games\n2. All Moves in Games That They Won in\n3. All of a Players Moves in Games That They Lost in\n4. All Games That Ended in Ties\n\n>")
         if stat_type == "1":
             csv_data = read_csv("data.csv", header=None, names=["gamemode","who_won","player_one_name","str_player_one_turns","player_two_name","str_player_two_turns"])
         elif stat_type == "2":
@@ -368,7 +368,7 @@ if gamemode == "4":
                 second_moves_frequency_without_start = second_moves_frequency_raw.replace(second_moves_frequency_raw[:9], '', 1)
                 second_moves_frequency_without_end = second_moves_frequency_without_start.replace(second_moves_frequency_without_start[-2:], '', 1)
                 second_moves_frequency = second_moves_frequency_without_end.replace(", ", '\n  ')
-                print("The Frequency of:\nSecond Moves:\n  " + second_moves_frequency)
+                print("Second Moves:\n  " + second_moves_frequency)
             else:
                 pass
             if third_moves:
@@ -376,7 +376,7 @@ if gamemode == "4":
                 third_moves_frequency_without_start = third_moves_frequency_raw.replace(third_moves_frequency_raw[:9], '', 1)
                 third_moves_frequency_without_end = third_moves_frequency_without_start.replace(third_moves_frequency_without_start[-2:], '', 1)
                 third_moves_frequency = third_moves_frequency_without_end.replace(", ", '\n  ')
-                print("The Frequency of:\nThird Moves:\n  " + third_moves_frequency)
+                print("Third Moves:\n  " + third_moves_frequency)
             else:
                 pass
             if fourth_moves:
@@ -384,7 +384,7 @@ if gamemode == "4":
                 fourth_moves_frequency_without_start = fourth_moves_frequency_raw.replace(fourth_moves_frequency_raw[:9], '', 1)
                 fourth_moves_frequency_without_end = fourth_moves_frequency_without_start.replace(fourth_moves_frequency_without_start[-2:], '', 1)
                 fourth_moves_frequency = fourth_moves_frequency_without_end.replace(", ", '\n  ')
-                print("The Frequency of:\nFourth Moves:\n  " + fourth_moves_frequency)
+                print("Fourth Moves:\n  " + fourth_moves_frequency)
             else:
                 pass
             if fifth_moves:
@@ -392,7 +392,7 @@ if gamemode == "4":
                 fifth_moves_frequency_without_start = fifth_moves_frequency_raw.replace(fifth_moves_frequency_raw[:9], '', 1)
                 fifth_moves_frequency_without_end = fifth_moves_frequency_without_start.replace(fifth_moves_frequency_without_start[-2:], '', 1)
                 fifth_moves_frequency = fifth_moves_frequency_without_end.replace(", ", '\n  ')
-                print("The Frequency of:\nFifth Moves:\n  " + fifth_moves_frequency)
+                print("Fifth Moves:\n  " + fifth_moves_frequency)
             else:
                 pass
         elif stat_option == "2":
