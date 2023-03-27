@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Tic Tac Toe - Computer Science Project Report</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+p {
+  text-align: left;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+</style>
+<body>
+
+  <h1>Tic Tac Toe - Computer Science Project Report</h1>
+  <h2>Meeting The Brief</h2>
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <p></p>
+
+  <h2>Investigation and Plan</h2>
+  <p>I started my investigation by looking at many different board and card games. I used search engines such as DuckDuckGo and Google to find info on many board and card games. I looked at Snakes and Ladders, but the game is only luck based and there is no way for players to improve and get better at the game. I looked at Solitaire, Uno and Chess and these games would work for this project, but I think that they are too complicated for this project and take up too much time to program. I settled on doing Tic Tac Toe because it has the ability for players to get better at it and the game has a bit of probability to it too. I have looked at the rules and other digital versions of Tic Tac Toe and how they work (see references). I decided to not do graphics and have the game be rendered in the command line as I don't have the time to learn and make graphics for the game. My project will be written in Python as it is the programming language I know best, it will be rendered in the command line and it will be mostly written in a functional programming way to make the program as easy to code and modify as possible. My objectives are to make a working project that hits the below requirements:</p>
+  <h3>Meeting Basic Requirements</h3>
+  <ul>
+    <li>Tic Tac Toe is a game that isn’t too complicated, and I can model and create in python in a moderate amount of time</li>
+    <li>Tic Tac Toe can have many inputs for the game itself and the game can start by taking name and email from the user as inputs</li>
+    <li>Tic Tac Toe could be programmed for the player to be able to play the game on their own against the computer, have two players play against each other and I can program it to have two computers play against each other</li>
+  </ul>
+  <h3>Meeting Advanced Requirements</h3>
+  <ul>
+    <li>All of each player’s Tic Tac Toe moves and which player wins I will be able to record into a csv file</li>
+    <li>The data generated from Tic Tac Toe is stored in a csv file and can be used for performing statistical analysis using algorithms to get info like the frequency, mode, mean and median of a player’s moves</li>
+    <li>The above data can be used to prove or disprove a hypothesis like “If player 1 puts their first move in the middle of the board, they are more like to win”</li>
+  </ul>
+
+  <h2>Design</h2>
+  <p>First, I thought about all my requirements and how I will meet them. To take 3 inputs, I will have the program take three inputs: the user’s name, the user’s email and the game mode the user wants to play in. Next, I decided to make the main game in the program as a function with inputs that will decide which players are human or the computer. If a player is human, it will ask the user for an input to pick the player’s choice for the board. If the player is the computer, it will generate a random number between 1 and 9 as the player’s choice for the board. If the player's choice on the board is already occupied, a human player will be asked to input a choice for an empty spot on the board, and a computer player will generate a new number. The human player will kept being asking for a move until an empty space is chosen and the computer player will continue to generate random numbers until a number representing a empty space is generated. After each player move, the game will check the board against a list of winning game boards and it will also detet if the game turns out to be a tie. If it is a win or a tie, a message will be displayed saying if it is a tie or which player has won. If the game is over the user will be asked if they want to play again. If the user answers yes, then the main game function will be ran again with the same inputs and if the user answers no, the program will exit. When the game finishs it will record game data into a csv file including all moves of each player. I will then program a menu that allows you to pick what player's moves to use and what type of statistical analysis to do on those moves like getting the mean, mode, median, etc. The 3 inputs of email, name and game mode at the start, having the function to be able to run multiple game modes, recording csv data and using this csv data to do statistical analysis should reach my requirements.</p>
+  <h3>Psuedocode and Flowchart</h3>
+  <a href="flowchart.png"><img src="flowchart.png" alt="Design Flowchart" width="1200" height="611"></a>
+  <a href="psuedocode.png"><img src="psuedocode.png" alt="Psuedocode" width="531" height="531"></a>
+  <p>The abstraction of my program is where I didn't do graphics. This massively simplifies making the game as I don't have to learn graphic making and it keeps everything inside the command line.</p>
+  <p>I used a function based model to make my program where pieces of code that would normally be repeated can be put inside a function and then that function can be called when needed. I have designed the functions to be adaptable using function inputs, so that one function can do multiple things.</p>
+
+  <h2>Implementation</h2>
+  <p></p>
+
+  <h2>Testing</h2>
+  <p></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Input(s)</th>
+            <th>Expected Output(s)</th>
+            <th>Actual Output(s)</th>
+            <th>Test Result</th>
+            <th>Test Data Used</th>
+            <th>Comments</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Accept and validate username</td>
+            <td>Any name that is 6 or more characters long </td>
+            <td>Accepts a valid name and moves on </td>
+            <td>Accepted a variety of names containing various characters that were 6 or more characters long and moved on </td>
+            <td>Pass</td>
+            <td>“John,” “Mary”, “(^*$”, “c00lj0e78”, “أَمِيْن” and “明美” </td>
+            <td>It also accepted names with symbols, numbers and even non-English characters </td>
+        </tr>
+        <tr>
+            <td>Accept and validate email </td>
+            <td>Any input that contains the “@” character </td>
+            <td>Accepts a valid email and moves on</td>
+            <td>Accepted a variety of strings, if the string contained an “@” and moved on </td>
+            <td>Pass</td>
+            <td>“Jim@yahoo.com”, “coolbeans@gmail.com”, “jim@yahoo” and “beans_hotmail.com”  </td>
+            <td>It also accepted emails that weren’t real or had a proper domain e.g., it accepted jim@yahoo, while it should be jim@yahoo.com </td>
+        </tr>
+        <tr>
+            <td>Accept and validate game mode </td>
+            <td>The numbers 1 to 5</td>
+            <td>Launches game mode that the number the user inputted corresponds with </td>
+            <td>Accepts the numbers 1 to 5 and launches the game mode associated  </td>
+            <td>Pass</td>
+            <td>1, 2, 3, 4, 5, 6, 0, “one”, “two”, “zero”, “four”, “three”, “five”, “Singleplayer”, “singleplayer” and “multiplayer” </td>
+            <td>It didn’t accept the words “one”, “two”, “three”, “four” or “five” and it didn’t accept the names of the game modes </td>
+        </tr>
+        <tr>
+            <td>Main game</td>
+            <td>Player&#39;s move</td>
+            <td>After each player move it shows board or if a player won </td>
+            <td>If a player has won, it displays that that player has won and if no player has own it shows board and then accepts the next player’s move and this repeats until someone wins </td>
+            <td>Pass</td>
+            <td>3, 2, 5, 4, 1, 9, 0, “nine”, “ten”, “Four” and “Foot” </td>
+            <td>It accepted any number from 1 to 9, but not 0 as there is no square labeled 0. It also didn’t accept the strings “nine”, “ten” or “Four” </td>
+        </tr>
+    </tbody>
+</table>
+
+  <h2>Evaluation</h2>
+  <p></p>
+
+  <h2>References</h2>
+  <ol>
+    <li><a href="duckduckgo.com">DuckDuckGo</a> - Search Engine used to find out information, references and resources</li>
+    <li><a href="google.com">Google</a> - Search Engine used to find out information, references and resources</li>
+    <h3>Games I Considered Doing</h3>
+    <li><a href="https://en.wikipedia.org/wiki/Snakes_and_ladders">Snakes and Ladders</a> - This game is only luck based and there is no way for the players to get better</li>
+    <li><a href="https://en.wikipedia.org/wiki/Patience_(game)">Solitaire (Patience)</a> - This game I found to be too complicated and/or time consuming to program for this project</li>
+    <li><a href="https://en.wikipedia.org/wiki/Chess">Chess</a> - This game I found to be too complicated and/or time consuming to program for this project</li>
+    <li><a href="https://en.wikipedia.org/wiki/Uno_(card_game)">Uno</a> - This game I found to be too complicated and/or time consuming to program for this project</li>
+    <h3>Game I Picked (Tic Tac Toe)</h3>
+    <li><a href="https://www.exploratorium.edu/brain_explorer/tictactoe.html">Rules of Tic Tac Toe and Online Game Version of Tic Tac Toe</a> - Rules on how Tic Tac Toe works and an online version to get used to how the game works</li>
+    <li><a href="https://www.google.com/search?q=tic+tac+toe">Online Tic Tac Toe Game on Google</a> - Another online version to get used to how the game works</li>
+    <h3>Tools Used to Make Artefact</h3>
+    <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - The IDE I used to program the artefact</li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack"></a> - Extension pack I used to help with programming by adding colouring and debugging for python to Visual Studio Code</li>
+    <h3>Links Used to Refresh My Memory, Solve Problems I Ran into and Learn About How to Use Something</h3>
+    <li><a href="https://www.w3schools.com/python/python_functions.asp">W3Schools: Python Functions</a></li>
+    <li><a href="https://stackoverflow.com/questions/14594522/how-to-break-out-of-while-loop-in-python">StackOverflow: How to break out of a while loop in python</a></li>
+    <li><a href="https://duckduckgo.com/?t=ffab&q=tic+tac+toe+ascii&atb=v324-1&iax=images&ia=images">DuckDuckgo Images: tic tac toe ascii</a></li>
+    <li><a href="https://www.geeksforgeeks.org/declare-an-empty-list-in-python/">GeeksforGeeks: Decale an empty list in python</a></li>
+    <li><a href="https://www.w3schools.com/python/python_lists.asp">W3Schools: Python Lists</a></li>
+    <li><a href="https://stackoverflow.com/questions/9573244/how-to-check-if-the-string-is-empty">StackOverflow: How to check if the string is empty</a></li>
+    <li><a href="https://stackoverflow.com/questions/62379898/greater-than-or-equal-vs-equal-or-greater-than-in-python#62379949">StackOverflow: Greather than or equal vs equal or greater than in python</a></li>
+    <li><a href="https://www.tutorialspoint.com/python/python_command_line_arguments.htm">TutorialsPoint: Python command line arguments</a></li>
+    <li><a href="https://www.geeksforgeeks.org/find-length-of-a-string-in-python-4-ways/">GeeksforGeeks: Find length of a string in python - 4 ways</a></li>
+    <li><a href="https://stackoverflow.com/questions/53477929/check-if-string-contains-specific-character#53478137">StackOverflow: Check if string contains specific character</a></li>
+    <li><a href="https://stackoverflow.com/questions/5423381/checking-if-sys-argvx-is-defined">StackOverflow: Checking if sys argvx is defined</a></li>
+    <li><a href="https://www.w3schools.com/python/python_for_loops.asp">W3Schools: For loops in python</a></li>
+    <li><a href="https://pythonguides.com/python-check-if-the-variable-is-an-integer/">PythonGuides: Python check if the variable is an integer</a></li>
+    <li><a href="https://stackoverflow.com/questions/64097627/check-if-string-is-in-a-list">StackOverflow: Check if string is in a list</a></li>
+    <li><a href="https://realpython.com/convert-python-string-to-int/">RealPython: Convert python string to integer</a></li>
+    <li><a href="https://www.geeksforgeeks.org/convert-string-to-integer-in-python/">GeeksforGeeks: Convert string to integer in python</a></li>
+    <li><a href="https://www.w3schools.com/python/ref_string_isdigit.asp">W3Schools: ref string isdigit</a></li>
+    <li><a href="https://stackoverflow.com/questions/306400/how-can-i-randomly-select-an-item-from-a-list#306417">StackOverflow: How can I randomly select an item from a list</a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-replace-substring-in-list-of-strings/">GeeksforGeeks: Python replace substring in list of strings</a></li>
+    <li><a href="https://www.pythoncentral.io/how-to-generate-a-random-number-in-python/">PythonCentral: How to generate a random number in python</a></li>
+    <li><a href="https://stackoverflow.com/questions/21388541/how-do-you-check-in-python-whether-a-string-contains-only-numbers#21388567">StackOverflow: How do you check in python whether a string contains only numbers</a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-check-if-two-lists-are-identical/">GeeksforGeeks: Python check if two lists are identical</a></li>
+    <li><a href="https://www.w3schools.com/python/python_booleans.asp">W3Schools: Python booleans</a></li>
+    <li><a href="https://stackoverflow.com/questions/28254807/how-to-loop-back-to-the-beginning-of-a-programme-python#28254828">StackOverflow: How to loop back to the beginning of a program python</a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-check-if-a-list-exists-in-given-list-of-lists/">GeeksforGeeks: Python check if a list exists in given list of lists</a></li>
+    <li><a href="https://www.pythonforbeginners.com/basics/list-of-lists-in-python">PythonforBeginners: List of lists in python</a></li>
+    <li><a href="https://duckduckgo.com/?t=ffab&q=tic+tac+toe+all+possible+wins&atb=v324-1&iax=images&ia=images">DuckDuckGo Images: tic tac toe all possible wins</a></li>
+    <li><a href="https://pythonexamples.org/python-if-and/">PythonExamples: Python if and</a></li>
+    <li><a href="https://www.w3schools.com/python/ref_keyword_continue.asp">W3Schools: Continue function</a></li>
+    <li><a href="https://www.w3schools.com/python/python_file_write.asp">W3Schools: Python write to file</a></li>
+    <li><a href="https://www.w3schools.com/python/ref_list_append.asp">W3Schools: Python append to list</a></li>
+    <li><a href="https://stackoverflow.com/questions/5618878/how-to-convert-list-to-string#5618893">StackOverflow: How to convert list to string</a></li>
+    <li><a href="https://docs.python.org/3/library/statistics.html">Official Python Documentation: Statistics Module</a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-read-csv-columns-into-list"></a></li>
+    <li><a href="https://stackoverflow.com/questions/32441633/how-to-read-specific-column-index-from-csv-using-pandas"></a></li>
+    <li><a href="https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions#82852"></a></li>
+    <li><a href="https://duckduckgo.com/?q=column+vs+row&t=newext&atb=v339-1&iax=images&ia=images"></a></li>
+    <li><a href="https://stackoverflow.com/questions/42788930/how-to-take-only-first-four-elements-of-every-strings-from-a-list"></a></li>
+    <li><a href="https://stackoverflow.com/questions/11786157/if-list-index-exists-do-x"></a></li>
+    <li><a href="https://realpython.com/python-rounding/"></a></li>
+    <li><a href="https://stackoverflow.com/questions/53513/how-do-i-check-if-a-list-is-empty"></a></li>
+    <li><a href="https://stackoverflow.com/questions/2161752/how-to-count-the-frequency-of-the-elements-in-an-unordered-list#2162045"></a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-ways-to-remove-n-characters-from-start-of-given-string/"></a></li>
+  </ol>
+
+  <h2>Summary Word Count</h2>
+<table align="center">
+    <thead>
+        <tr>
+            <th>Section</th>
+            <th>Word Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1. Meeting the Brief</td>
+            <td>Max 500 Words</td>
+        </tr>
+        <tr>
+            <td>2. Investigation and Plan</td>
+            <td>Approx 400</td>
+        </tr>
+        <tr>
+            <td>3. Design</td>
+            <td>Approx 400</td>
+        </tr>
+        <tr>
+            <td>4. Implementation</td>
+            <td>Approx 500</td>
+        </tr>
+        <tr>
+            <td>5. Testing</td>
+            <td>Approx 350</td>
+        </tr>
+        <tr>
+            <td>6. Evaluation</td>
+            <td>Approx 350</td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td>Max 2500</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html> 
