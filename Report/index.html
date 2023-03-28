@@ -48,13 +48,15 @@ table, th, td {
   <h2>Design</h2>
   <p>First, I thought about all my requirements and how I will meet them. To take 3 inputs, I will have the program take three inputs: the user’s name, the user’s email and the game mode the user wants to play in. Next, I decided to make the main game in the program as a function with inputs that will decide which players are human or the computer. If a player is human, it will ask the user for an input to pick the player’s choice for the board. If the player is the computer, it will generate a random number between 1 and 9 as the player’s choice for the board. If the player's choice on the board is already occupied, a human player will be asked to input a choice for an empty spot on the board, and a computer player will generate a new number. The human player will kept being asking for a move until an empty space is chosen and the computer player will continue to generate random numbers until a number representing a empty space is generated. After each player move, the game will check the board against a list of winning game boards and it will also detet if the game turns out to be a tie. If it is a win or a tie, a message will be displayed saying if it is a tie or which player has won. If the game is over the user will be asked if they want to play again. If the user answers yes, then the main game function will be ran again with the same inputs and if the user answers no, the program will exit. When the game finishs it will record game data into a csv file including all moves of each player. I will then program a menu that allows you to pick what player's moves to use and what type of statistical analysis to do on those moves like getting the mean, mode, median, etc. The 3 inputs of email, name and game mode at the start, having the function to be able to run multiple game modes, recording csv data and using this csv data to do statistical analysis should reach my requirements.</p>
   <h3>Psuedocode and Flowchart</h3>
-  <a href="flowchart.png"><img src="flowchart.png" alt="Design Flowchart" width="1200" height="611"></a>
   <a href="psuedocode.png"><img src="psuedocode.png" alt="Psuedocode" width="531" height="531"></a>
+  <a href="flowchart.png"><img src="flowchart.png" alt="Design Flowchart" width="1200" height="611"></a>
   <p>The abstraction of my program is where I didn't do graphics. This massively simplifies making the game as I don't have to learn graphic making and it keeps everything inside the command line.</p>
   <p>I used a function based model to make my program where pieces of code that would normally be repeated can be put inside a function and then that function can be called when needed. I have designed the functions to be adaptable using function inputs, so that one function can do multiple things.</p>
 
   <h2>Implementation</h2>
-  <p></p>
+  <p>I wrote the program using Visual Studio Code using the Visual Studio Code Python Extension Pack that provided debug tools and syntax highlighting. I started off doing the inputs that run at the start of the program. I also added than the inputs can be put in at the command line when running the command to run the program to speed up testing later. I then did the game mode menu and inputs to the main game function. Next, I made the main game function and made it be able to play each game mode based of which inputs were passed through to the main game function. I wrote most of the code from scratch as I have much experience with Python and I have certain code style I like to stick to. For things, that I wasn't completely sure on, needed a refresh on or didn't know, I looked up the required documentation, articles or answers on forums like StackOverflow and wrote my own code based of the information I found or borrowed small bits and messed with them to get used to how those bits of code worked. The system I had designed had implemented well and not much of it had changed other than adding code to made certain things work, fix certain issues or add things I forgot to plan in the design phase. My process of making the program was to look at my design and then write Python code that did what was in my design. I later on had to add code for requirements and features I forgot to plan to, but other than that everything in the system I planned in my design, made it through to the program.</p>
+  <p>One problem I had during programming was during I part I completely forgot to desig, which was making the program save and record csv data and then using that data to do statistical analysis. My problem was that I saved every move a player made as a string in the csv file that might look like this: "2,4,6,3". The reason for this was that I could have every line of the csv file be one game, but also have each line include all of each player's moves. My solution to this problem was with string manipulation. What I did write a function that takes the string and take the first, third, fifth, seventh and ninth (if it exists) and put them into their own lists based of if it was the first move, second move, third move, etc.</p> 
+  <p>A section of code I would like to discuss is the statistical analysis section of the program. It is the fourth option on the game mode menu after the inputs for name and email. After selecting statistical analysis, it will ask for whether to do analysis on Player 1 or 2 and then what kind of statistical analysis to do on that players moves. The options are Frequency, Mean, Median and Mode. After selecting your option for what kind of analysis to do, the program will display the stats you wanted and exit.</p>
 
   <h2>Testing</h2>
   <p></p>
@@ -82,7 +84,7 @@ table, th, td {
             <td>It also accepted names with symbols, numbers and even non-English characters </td>
         </tr>
         <tr>
-            <td>Accept and validate email </td>
+            <td>Accept and validate email</td>
             <td>Any input that contains the “@” character </td>
             <td>Accepts a valid email and moves on</td>
             <td>Accepted a variety of strings, if the string contained an “@” and moved on </td>
@@ -112,7 +114,13 @@ table, th, td {
 </table>
 
   <h2>Evaluation</h2>
-  <p></p>
+  <p>My initial design was a little barebones and could had more work. I didn't design and left out some crucial parts that were apart of certain requirements and completely forgot to plan some requirements. However, my entire design has made it through to the final project without much modification. I did have to add in bits that weren't in the design for the parts I didn't plan out. While making my plan I feel I had a clear idea of what the Python code would be and the way it was going to work out.</p>
+  <p>My initial objectives of making a functional tic tac toe game, having 3 inputs, having multiple game modes, saving and storing data in a csv file, doing statistical analysis on that csv data and writing it in Python I feel like I have achieved. Some of these objectives I had forgotten to plan, but was able to add in after programming the parts I did design. Any issue I ran into that would have stopped me from reaching those goals I was effectively able to fix or work around.</p>
+  <ul>
+    <li>One improvement I could make in the future is looking at all my goals and planning and designing all of them before starting programming. This will prevent any janky code be inserted after writing code from the initial design or running into certain issues that I could have seen ahead and solved before having to write and Python code.</li>
+    <li>Another improvement I could have done was learning and making proper (non command line) graphics for the game and being able to use your mouse to select the space you want to take on the board. This would have made the game more accessible and much easier for people to play and understand without having to read a lot of the messages that program prints.</li>
+    <li>One change I would have made was to use less non-in-built Python libraries as it would make the program more accessible and easier to run for people who are less tech savvy. This would require me writing more code, but it would be worth it to make the program be able to run on machines that can't access the internet or be able to be ran by people who don't know how to download and install external python libraries.</li>
+  </ul>
 
   <h2>References</h2>
   <ol>
@@ -128,7 +136,7 @@ table, th, td {
     <li><a href="https://www.google.com/search?q=tic+tac+toe">Online Tic Tac Toe Game on Google</a> - Another online version to get used to how the game works</li>
     <h3>Tools Used to Make Artefact</h3>
     <li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - The IDE I used to program the artefact</li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack"></a> - Extension pack I used to help with programming by adding colouring and debugging for python to Visual Studio Code</li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack">Visual Studio Code Python Extension Pack</a> - Extension pack I used to help with programming by adding colouring and debugging for python to Visual Studio Code</li>
     <h3>Links Used to Refresh My Memory, Solve Problems I Ran into and Learn About How to Use Something</h3>
     <li><a href="https://www.w3schools.com/python/python_functions.asp">W3Schools: Python Functions</a></li>
     <li><a href="https://stackoverflow.com/questions/14594522/how-to-break-out-of-while-loop-in-python">StackOverflow: How to break out of a while loop in python</a></li>
@@ -163,16 +171,16 @@ table, th, td {
     <li><a href="https://www.w3schools.com/python/ref_list_append.asp">W3Schools: Python append to list</a></li>
     <li><a href="https://stackoverflow.com/questions/5618878/how-to-convert-list-to-string#5618893">StackOverflow: How to convert list to string</a></li>
     <li><a href="https://docs.python.org/3/library/statistics.html">Official Python Documentation: Statistics Module</a></li>
-    <li><a href="https://www.geeksforgeeks.org/python-read-csv-columns-into-list"></a></li>
-    <li><a href="https://stackoverflow.com/questions/32441633/how-to-read-specific-column-index-from-csv-using-pandas"></a></li>
-    <li><a href="https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions#82852"></a></li>
-    <li><a href="https://duckduckgo.com/?q=column+vs+row&t=newext&atb=v339-1&iax=images&ia=images"></a></li>
-    <li><a href="https://stackoverflow.com/questions/42788930/how-to-take-only-first-four-elements-of-every-strings-from-a-list"></a></li>
-    <li><a href="https://stackoverflow.com/questions/11786157/if-list-index-exists-do-x"></a></li>
-    <li><a href="https://realpython.com/python-rounding/"></a></li>
-    <li><a href="https://stackoverflow.com/questions/53513/how-do-i-check-if-a-list-is-empty"></a></li>
-    <li><a href="https://stackoverflow.com/questions/2161752/how-to-count-the-frequency-of-the-elements-in-an-unordered-list#2162045"></a></li>
-    <li><a href="https://www.geeksforgeeks.org/python-ways-to-remove-n-characters-from-start-of-given-string/"></a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-read-csv-columns-into-list">GeeksforGeeks: Python read csv columns into list</a></li>
+    <li><a href="https://stackoverflow.com/questions/32441633/how-to-read-specific-column-index-from-csv-using-pandas">StackOverflow: How to read specific column index from csv using pandas</a></li>
+    <li><a href="https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions#82852">StackOverflow: How do I check whether a file exists without exceptions</a></li>
+    <li><a href="https://duckduckgo.com/?q=column+vs+row&t=newext&atb=v339-1&iax=images&ia=images">DuckDuckGo Images: Columns vs rows</a></li>
+    <li><a href="https://stackoverflow.com/questions/42788930/how-to-take-only-first-four-elements-of-every-strings-from-a-list">StackOverflow: How to take only first four elements of every string from a list</a></li>
+    <li><a href="https://stackoverflow.com/questions/11786157/if-list-index-exists-do-x">StackOverflow: If list index exists do x</a></li>
+    <li><a href="https://realpython.com/python-rounding/">RealPython: Python Rounding</a></li>
+    <li><a href="https://stackoverflow.com/questions/53513/how-do-i-check-if-a-list-is-empty">StackOverflow: How do I check if a list is empty</a></li>
+    <li><a href="https://stackoverflow.com/questions/2161752/how-to-count-the-frequency-of-the-elements-in-an-unordered-list#2162045">StackOverflow: How to count the frequency of the elements in an unordered list</a></li>
+    <li><a href="https://www.geeksforgeeks.org/python-ways-to-remove-n-characters-from-start-of-given-string/">GeeksforGeeks: Python ways to remove n characters from start of given string</a></li>
   </ol>
 
   <h2>Summary Word Count</h2>
