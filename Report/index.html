@@ -25,7 +25,7 @@ table, th, td {
 
   <h1>Tic Tac Toe - Computer Science Project Report</h1>
   <h2>Meeting The Brief</h2>
-  <video controls>
+  <video controls height="360" width="640">
     <source src="video.mp4" type="video/mp4">
   </video>
   <p></p>
@@ -55,11 +55,11 @@ table, th, td {
 
   <h2>Implementation</h2>
   <p>I wrote the program using Visual Studio Code using the Visual Studio Code Python Extension Pack that provided debug tools and syntax highlighting. I started off doing the inputs that run at the start of the program. I also added than the inputs can be put in at the command line when running the command to run the program to speed up testing later. I then did the game mode menu and inputs to the main game function. Next, I made the main game function and made it be able to play each game mode based of which inputs were passed through to the main game function. I wrote most of the code from scratch as I have much experience with Python and I have certain code style I like to stick to. For things, that I wasn't completely sure on, needed a refresh on or didn't know, I looked up the required documentation, articles or answers on forums like StackOverflow and wrote my own code based of the information I found or borrowed small bits and messed with them to get used to how those bits of code worked. The system I had designed had implemented well and not much of it had changed other than adding code to made certain things work, fix certain issues or add things I forgot to plan in the design phase. My process of making the program was to look at my design and then write Python code that did what was in my design. I later on had to add code for requirements and features I forgot to plan to, but other than that everything in the system I planned in my design, made it through to the program.</p>
-  <p>One problem I had during programming was during I part I completely forgot to desig, which was making the program save and record csv data and then using that data to do statistical analysis. My problem was that I saved every move a player made as a string in the csv file that might look like this: "2,4,6,3". The reason for this was that I could have every line of the csv file be one game, but also have each line include all of each player's moves. My solution to this problem was with string manipulation. What I did write a function that takes the string and take the first, third, fifth, seventh and ninth (if it exists) and put them into their own lists based of if it was the first move, second move, third move, etc.</p> 
+  <p>One problem I had during programming was during I part I completely forgot to design, which was making the program save and record csv data and then using that data to do statistical analysis. My problem was that I saved every move a player made as a string in the csv file that might look like this: "2,4,6,3". The reason for this was that I could have every line of the csv file be one game, but also have each line include all of each player's moves. My solution to this problem was with string manipulation. What I did write a function that takes the string and take the first, third, fifth, seventh and ninth (if it exists) and put them into their own lists based of if it was the first move, second move, third move, etc.</p> 
   <p>A section of code I would like to discuss is the statistical analysis section of the program. It is the fourth option on the game mode menu after the inputs for name and email. After selecting statistical analysis, it will ask for whether to do analysis on Player 1 or 2 and then what kind of statistical analysis to do on that players moves. The options are Frequency, Mean, Median and Mode. After selecting your option for what kind of analysis to do, the program will display the stats you wanted and exit.</p>
 
   <h2>Testing</h2>
-  <p></p>
+  <p>I have tested my project numerous times after finishing the programming of it and I tested some parts of it, while programming, which is form of testing called Unit Testing. One problem I came across while doing Integration testing (where you test parts of the system together) on the main game function and the different choices at the start of the program for the gamemodes that input into the main game function was that sometimes the tie detection would go off and say that there was tie even when there wasn't. I never figured out why this happened but after moving some code around trying to find why this happened I somehow fixed it. I did some System testing (testing of the whole program) afterwards and everything seemed to be working fine. My testing shows me that my program works successfully and doesn't have any bugs that I can detect.</p>
 
 <table>
     <thead>
@@ -194,31 +194,31 @@ table, th, td {
     <tbody>
         <tr>
             <td>1. Meeting the Brief</td>
-            <td>Max 500 Words</td>
+            <td>0 (Video)</td>
         </tr>
         <tr>
             <td>2. Investigation and Plan</td>
-            <td>Approx 400</td>
+            <td>422</td>
         </tr>
         <tr>
             <td>3. Design</td>
-            <td>Approx 400</td>
+            <td>459</td>
         </tr>
         <tr>
             <td>4. Implementation</td>
-            <td>Approx 500</td>
+            <td>518</td>
         </tr>
         <tr>
             <td>5. Testing</td>
-            <td>Approx 350</td>
+            <td>441</td>
         </tr>
         <tr>
             <td>6. Evaluation</td>
-            <td>Approx 350</td>
+            <td>387</td>
         </tr>
         <tr>
             <td>Total:</td>
-            <td>Max 2500</td>
+            <td>2227</td>
         </tr>
     </tbody>
 </table>
