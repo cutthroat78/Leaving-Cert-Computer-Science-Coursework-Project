@@ -4,6 +4,8 @@ This is my Leaving Cert Computer Science Coursework Project for 2023
 
 I am not sure what marks I got on this project itself (yet), but I did get a H1 in Computer Science
 
+The report part of this project can be viewed [here](https://cutthroat78.github.io/Leaving-Cert-Computer-Science-Coursework-Project/)
+
 <!--
 
 Below is my old to-do list for the project that I made at the very start of working on this project that I eventually forgot to fill out at some point
